@@ -38,6 +38,8 @@ def main(argv=None):
                     val = str(date_to_text(val, book.datemode))
                 elif typ == xlrd.XL_CELL_NUMBER and 3 == j:
                     val = str(int(val))
+                elif typ == xlrd.XL_CELL_NUMBER:
+                    val = str("%.2f"%val)
                 else:
                     val = str(val)
                 sql = sql + ", " + "'" + val + "'"
